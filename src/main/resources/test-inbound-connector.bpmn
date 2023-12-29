@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="7821bea" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="f3fd8f8e-ec52-4567-9446-0dc209a93617">
+  <bpmn:process id="TestInboundConnector" name="Test Inbound Connector" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0jtw8hk" sourceRef="StartEvent_1" targetRef="Event_095b9t1" />
+    <bpmn:endEvent id="Event_1t3m7ic" name="Test Process ended">
+      <bpmn:incoming>Flow_1in7o97</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1in7o97" sourceRef="Event_095b9t1" targetRef="Event_1t3m7ic" />
+    <bpmn:startEvent id="StartEvent_1" name="File created" zeebe:modelerTemplate="39b42a36-3794-4f6d-8fdf-517cfe0f7e75" zeebe:modelerTemplateVersion="1702892517930" zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;18&#39; height=&#39;16.777948&#39; viewBox=&#39;0 0 18 16.777948&#39; %3E%3Cpath d=&#39;M 16.217377 14.221737 c 0.35876673 -0.51572716,0.5549672 -1.1267518,0.5549672 -1.7714107 c 0.0 -0.63344747,-0.19059482 -1.2444721,-0.54375577 -1.7545934 V 0.0 H 0.0 v 15.079413 h 12.029897 c 0.4876985 0.30831516,1.0538772 0.47088128,1.6424788 0.47088128 c 0.63905317 0.0,1.2556835 -0.19620055,1.7714107 -0.5549672 l 1.7826221 1.7826221 l 0.77359074 -0.77359074 L 16.217377 14.221737 L 16.217377 14.221737 M 13.532231 1.2276548 h 1.4687012 v 1.3846153 h -1.4687012 V 1.2276548 M 1.2276548 1.2276548 h 11.076922 v 1.3846153 H 1.2276548 L 1.2276548 1.2276548 L 1.2276548 1.2276548 M 10.908751 13.851759 H 1.2276548 V 3.839925 h 13.773278 v 5.813142 c -0.40921828 -0.19620055,-0.8576767 -0.2971037,-1.3285581 -0.2971037 c -0.829648 0.0,-1.6032388 0.31952658,-2.1918404 0.90812826 c -0.5829959 0.5829959,-0.90812826 1.3621923,-0.90812826 2.1918404 C 10.572407 12.949236,10.690126 13.425723,10.908751 13.851759 L 10.908751 13.851759 M 13.672375 14.642167 c -1.2108377 0.0,-2.1862347 -0.98100275,-2.1862347 -2.1862347 s 0.98100275 -2.1862347,2.1862347 -2.1862347 s 2.1862347 0.98100275,2.1862347 2.1862347 S 14.883213 14.642167,13.672375 14.642167 z&#39;/%3E%3C/svg%3E">
+      <bpmn:extensionElements>
+        <zeebe:properties>
+          <zeebe:property name="inbound.type" value="io.camunda:watchserviceinbound:1" />
+          <zeebe:property name="eventToMonitor" value="ENTRY_CREATE" />
+          <zeebe:property name="directory" value="C:\Users\Camunda\Downloads" />
+          <zeebe:property name="pollingInterval" value="30" />
+          <zeebe:property name="resultVariable" value="event" />
+          <zeebe:property name="resultExpression" value="={fileName:event.fileName}" />
+        </zeebe:properties>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_0jtw8hk</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:intermediateCatchEvent id="Event_095b9t1" name="Same file deleted" zeebe:modelerTemplate="5adeb314-4f49-467a-be61-bbd9b11e1471" zeebe:modelerTemplateVersion="1702898915751" zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;18&#39; height=&#39;16.777948&#39; viewBox=&#39;0 0 18 16.777948&#39; %3E%3Cpath d=&#39;M 16.217377 14.221737 c 0.35876673 -0.51572716,0.5549672 -1.1267518,0.5549672 -1.7714107 c 0.0 -0.63344747,-0.19059482 -1.2444721,-0.54375577 -1.7545934 V 0.0 H 0.0 v 15.079413 h 12.029897 c 0.4876985 0.30831516,1.0538772 0.47088128,1.6424788 0.47088128 c 0.63905317 0.0,1.2556835 -0.19620055,1.7714107 -0.5549672 l 1.7826221 1.7826221 l 0.77359074 -0.77359074 L 16.217377 14.221737 L 16.217377 14.221737 M 13.532231 1.2276548 h 1.4687012 v 1.3846153 h -1.4687012 V 1.2276548 M 1.2276548 1.2276548 h 11.076922 v 1.3846153 H 1.2276548 L 1.2276548 1.2276548 L 1.2276548 1.2276548 M 10.908751 13.851759 H 1.2276548 V 3.839925 h 13.773278 v 5.813142 c -0.40921828 -0.19620055,-0.8576767 -0.2971037,-1.3285581 -0.2971037 c -0.829648 0.0,-1.6032388 0.31952658,-2.1918404 0.90812826 c -0.5829959 0.5829959,-0.90812826 1.3621923,-0.90812826 2.1918404 C 10.572407 12.949236,10.690126 13.425723,10.908751 13.851759 L 10.908751 13.851759 M 13.672375 14.642167 c -1.2108377 0.0,-2.1862347 -0.98100275,-2.1862347 -2.1862347 s 0.98100275 -2.1862347,2.1862347 -2.1862347 s 2.1862347 0.98100275,2.1862347 2.1862347 S 14.883213 14.642167,13.672375 14.642167 z&#39;/%3E%3C/svg%3E">
+      <bpmn:extensionElements>
+        <zeebe:properties>
+          <zeebe:property name="eventToMonitor" value="ENTRY_DELETE" />
+          <zeebe:property name="directory" value="C:\Users\Camunda\Downloads" />
+          <zeebe:property name="pollingInterval" value="30" />
+          <zeebe:property name="correlationKeyExpression" value="=event.fileName" />
+          <zeebe:property name="resultVariable" value="event" />
+          <zeebe:property name="inbound.type" value="io.camunda:watchserviceinbound:1" />
+        </zeebe:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0jtw8hk</bpmn:incoming>
+      <bpmn:outgoing>Flow_1in7o97</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_173gu3y" messageRef="Message_1jr655z" />
+    </bpmn:intermediateCatchEvent>
+  </bpmn:process>
+  <bpmn:message id="Message_1jr655z" name="3b08ac6e-c0c0-440f-b9ee-0a2502c57a7b" zeebe:modelerTemplate="5adeb314-4f49-467a-be61-bbd9b11e1471">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=fileName" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="TestInboundConnector">
+      <bpmndi:BPMNShape id="Event_1t3m7ic_di" bpmnElement="Event_1t3m7ic">
+        <dc:Bounds x="342" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="329" y="143" width="63" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1v83hlo_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="150" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="139" y="143" width="58" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_05v5tje_di" bpmnElement="Event_095b9t1">
+        <dc:Bounds x="242" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="218" y="143" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0jtw8hk_di" bpmnElement="Flow_0jtw8hk">
+        <di:waypoint x="186" y="118" />
+        <di:waypoint x="242" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1in7o97_di" bpmnElement="Flow_1in7o97">
+        <di:waypoint x="278" y="118" />
+        <di:waypoint x="342" y="118" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
